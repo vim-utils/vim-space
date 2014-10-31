@@ -2,6 +2,20 @@
 
 Vim text objects for the whitespace.
 
+### Text objects
+
+* `a<Space>` "around whitespace", selects all the whitespace characters around
+  the cursor.<br/>
+  When invoked on an empty line, operator behaves
+  [linewise](http://vimdoc.sourceforge.net/htmldoc/motion.html#linewise) by
+  selecting all the surrounding empty lines.
+* `i<Space>` "inner whitespace", selects all the whitespace characters around
+  the cursor, except the first char.<br/>
+  When invoked on an empty line, operator behaves
+  [linewise](http://vimdoc.sourceforge.net/htmldoc/motion.html#linewise) by
+  selecting all the surrounding empty lines, except the first one.
+* `<Space>` - same as `i<Space>`
+
 ### Installation
 
 * Vundle<br/>

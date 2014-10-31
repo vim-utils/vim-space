@@ -1,0 +1,46 @@
+*space.txt*	text objects for whitespace
+
+Author: Bruno Sutic <https://www.github.com/bruno->
+
+INTRODUCTION					*space-plugin*
+
+Text objects for characterwise and linewise whitespace.
+
+MAPS						*space-maps*
+
+						*space-a<Space>*
+a<Space>	"around whitespace", selects all the whitespace characters
+		around the cursor.
+		When invoked on an empty line, operator behaves |linewise| by
+		selecting all the surrounding empty lines.
+
+						*space-i<Space>*
+i<Space>	"inner whitespace", selects all the whitespace characters
+		around the cursor, except the first char.
+		When invoked on an empty line, operator behaves |linewise| by
+		selecting all the surrounding empty lines, except the first
+		one.
+
+						*space-<Space>*
+<Space>		Same as |space-i<Space>|.
+
+						*g:space_default_mappings*
+To disable default maps, add the following to your vimrc:
+>
+  let g:space_default_mappings = 0
+<
+CONTRIBUTING					*space-contributing*
+
+Contributing and bug reports are welcome. Github repo:
+
+  https://github.com/bruno-/vim-space
+
+CHANGELOG					*space-changelog*
+
+	v0.0.1:	November 01, 2014	* Initial working version
+
+LICENSE						*space-license*
+
+Copyright (c) Bruno Sutic. Distributed under the MIT license.
+
+vim:tw=78:ts=8:ft=help:norl:
