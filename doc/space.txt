@@ -37,6 +37,7 @@ Contributing and bug reports are welcome. Github repo:
 
 CHANGELOG					*space-changelog*
 
+	v1.0.0:	November 01, 2014	* Add the docs and the readme
 	v0.0.1:	November 01, 2014	* Initial working version
 
 LICENSE						*space-license*
