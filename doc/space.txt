@@ -21,9 +21,6 @@ i<Space>	"inner whitespace", selects all the whitespace characters
 		selecting all the surrounding empty lines, except the first
 		one.
 
-						*space-<Space>*
-<Space>		Same as |space-i<Space>|.
-
 						*g:space_default_mappings*
 To disable default maps, add the following to your vimrc:
 >

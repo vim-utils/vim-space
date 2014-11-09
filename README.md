@@ -14,7 +14,6 @@ Vim text objects for the whitespace.
   When invoked on an empty line, operator behaves
   [linewise](http://vimdoc.sourceforge.net/htmldoc/motion.html#linewise) by
   selecting all the surrounding empty lines, except the first one.
-* `<Space>` - same as `i<Space>`
 
 ### Installation
 
