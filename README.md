@@ -15,6 +15,34 @@ Vim text objects for the whitespace.
   [linewise](http://vimdoc.sourceforge.net/htmldoc/motion.html#linewise) by
   selecting all the surrounding empty lines, except the first one.
 
+### Why?
+
+The most common use would be to easily get rid of the excessive whitespace.
+
+### Options
+
+To disable default mappings, add the following to vimrc:
+
+```viml
+let g:space_default_mappings = 0
+```
+
+Example creating custom mappings for `i<Ctrl-s>` and `a<Ctrl-s>`:
+
+```viml
+omap <silent> i<C-s> <Plug>(inner_space)
+xmap <silent> i<C-s> <Plug>(inner_space)
+omap <silent> a<C-s> <Plug>(around_space)
+xmap <silent> a<C-s> <Plug>(around_space)
+```
+
+Also, you might find these single-key mappings useful:
+
+```viml
+omap <silent> <Space> <Plug>(inner_space)
+xmap <silent> <Space> <Plug>(inner_space)
+```
+
 ### Installation
 
 * Vundle<br/>
