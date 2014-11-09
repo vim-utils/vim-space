@@ -82,73 +82,37 @@ endfunction
 
 " linewise functions {{{1
 
-function! s:positioned_on_leading_blank_lines()
+function! s:on_leading_blank_lines()
   return ! search('\S', 'bnW')
 endfunction
 
-function! s:positioned_on_trailing_blank_lines()
+function! s:on_trailing_blank_lines()
   return ! search('\S', 'nW')
 endfunction
 
-function! s:positioned_on_blank_lines()
+function! s:on_blank_line()
   return search('^\s*$', 'nW', line('.')+1) || search('^\s*$', 'bnW', line('.')-1)
 endfunction
 
-function! s:leading_blank_lines()
-  norm! gg0V
-  if search('\S','W')
-    norm! k$
-  else
-    " handles completely empty buffer
-    norm! G$
-  endif
+function! s:all_blank_lines()
+  norm! Vip
 endfunction
 
-function! s:trailing_blank_lines()
-  call search('\S','bW')
-  norm! j0VG$
-endfunction
-
-function! s:blank_lines_linewise(...)
-  call search('\S','bW')
-  if a:0 && a:1 ==# 'all'
-    norm! j
-  else
-    norm! 2j
-  endif
-  norm! 0V
-  call search('\S','W')
-  norm! k$
+function! s:inner_blank_lines()
+  call s:all_blank_lines()
+  norm! ojo
 endfunction
 
 function! s:inner_linewise()
-  if s:positioned_on_leading_blank_lines()
-    call s:leading_blank_lines()
-
-  elseif s:positioned_on_trailing_blank_lines()
-    call s:trailing_blank_lines()
-
-  elseif s:positioned_on_blank_lines()
-    call s:blank_lines_linewise()
-
-  " else
-    " not positioned on a blank line, handled by the characterwise function
+  if s:on_leading_blank_lines() || s:on_trailing_blank_lines()
+    call s:all_blank_lines()
+  elseif s:on_blank_line()
+    call s:inner_blank_lines()
   endif
 endfunction
 
 function! s:around_linewise()
-  if s:positioned_on_leading_blank_lines()
-    call s:leading_blank_lines()
-
-  elseif s:positioned_on_trailing_blank_lines()
-    call s:trailing_blank_lines()
-
-  elseif s:positioned_on_blank_lines()
-    call s:blank_lines_linewise('all')
-
-  " else
-    " not positioned on a blank line, handled by the characterwise function
-  endif
+  call s:all_blank_lines()
 endfunction
 
 " public functions {{{1
