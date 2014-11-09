@@ -34,6 +34,9 @@ Contributing and bug reports are welcome. Github repo:
 
 CHANGELOG					*space-changelog*
 
+	v2.0.0:>November 09, 2014	* Refactoring that simplifies
+					  internals. Remove default <Space>
+					  mapping and update the readme.
 	v1.0.0:	November 01, 2014	* Add the docs and the readme
 	v0.0.1:	November 01, 2014	* Initial working version
 
