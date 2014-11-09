@@ -56,37 +56,31 @@ endfunction
 
 " linewise functions {{{1
 
-function! s:on_leading_blank_lines()
-  return ! search('\S', 'bnW')
-endfunction
-
-function! s:on_trailing_blank_lines()
-  return ! search('\S', 'nW')
+function! s:on_leading_or_trailing_blank_lines()
+  return (! search('\S', 'bnW')) || (! search('\S', 'nW'))
 endfunction
 
 function! s:on_blank_line()
   return search('^\s*$', 'nW', line('.')+1) || search('^\s*$', 'bnW', line('.')-1)
 endfunction
 
-function! s:all_blank_lines()
+function! s:select_blank_lines(...)
   norm! Vip
-endfunction
-
-function! s:inner_blank_lines()
-  call s:all_blank_lines()
-  norm! ojo
+  if a:0 && a:1 ==# 'inner'
+    norm! ojo
+  endif
 endfunction
 
 function! s:inner_linewise()
-  if s:on_leading_blank_lines() || s:on_trailing_blank_lines()
-    call s:all_blank_lines()
+  if s:on_leading_or_trailing_blank_lines()
+    call s:select_blank_lines('all')
   elseif s:on_blank_line()
-    call s:inner_blank_lines()
+    call s:select_blank_lines('inner')
   endif
 endfunction
 
 function! s:around_linewise()
-  call s:all_blank_lines()
+  call s:select_blank_lines('all')
 endfunction
 
 " public functions {{{1
