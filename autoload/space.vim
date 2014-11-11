@@ -65,7 +65,7 @@ function! s:on_blank_line()
 endfunction
 
 function! s:select_blank_lines(...)
-  norm! Vip
+  norm! vip
   if a:0 && a:1 ==# 'inner'
     norm! ojo
   endif
