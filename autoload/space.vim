@@ -8,7 +8,7 @@ endfunction
 
 function! s:on_leading_or_trailing_whitespace()
   return strpart(getline('.'), 0, col('.')) =~# '^\s\+$' ||
-       \ strpart(getline('.'), col('.')-1) =~# '^\s\+$'
+       \ strpart(getline('.'), col('.')-1) =~# '^\s*$'
 endfunction
 
 function! s:on_whitespace()
